@@ -22,7 +22,6 @@ public class DesignTacoController {
     private final IngredientRepository ingredientRepository;
 
     public DesignTacoController(IngredientRepository ingredientRepository) {
-
         this.ingredientRepository = ingredientRepository;
     }
 
