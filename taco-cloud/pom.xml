@@ -20,6 +20,7 @@
     <modules>
         <module>taco-cloud-web</module>
         <module>taco-cloud-domain</module>
+        <module>persistence/taco-cloud-plain-jdbc</module>
     </modules>
 
     <properties>
@@ -30,6 +31,16 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.1</version>
         </dependency>
     </dependencies>
 

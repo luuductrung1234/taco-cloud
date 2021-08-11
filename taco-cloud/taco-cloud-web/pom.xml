@@ -23,6 +23,11 @@
             <artifactId>taco-cloud-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.learn</groupId>
+            <artifactId>taco-cloud-plain-jdbc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
