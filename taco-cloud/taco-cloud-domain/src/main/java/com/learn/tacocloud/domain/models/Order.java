@@ -1,6 +1,6 @@
 package com.learn.tacocloud.domain.models;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.validation.constraints.Digits;
@@ -12,6 +12,9 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@EqualsAndHashCode(exclude = "createdAt")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
 

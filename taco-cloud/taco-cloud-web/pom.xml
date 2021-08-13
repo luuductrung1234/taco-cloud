@@ -23,11 +23,20 @@
             <artifactId>taco-cloud-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.learn</groupId>-->
+<!--            <artifactId>taco-cloud-plain-jdbc</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.learn</groupId>
-            <artifactId>taco-cloud-plain-jdbc</artifactId>
+            <artifactId>taco-cloud-spring-jdbc</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!-- ==========================================
+        3RD PARTY
+        ==========================================- -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -45,18 +54,30 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- ==========================================
+        DATASOURCE
+        ==========================================- -->
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- ==========================================
+        TEST
+        ==========================================- -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>htmlunit-driver</artifactId>

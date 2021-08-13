@@ -1,6 +1,6 @@
 package com.learn.tacocloud.domain.models;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@EqualsAndHashCode(exclude = "createdAt")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Taco {
     private Long id;
 
