@@ -8,8 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Ingredient {
-
-    private final String id;
-    private final String name;
-    private final IngredientType type;
+    private String id;
+    private String name;
+    private IngredientType type;
 }

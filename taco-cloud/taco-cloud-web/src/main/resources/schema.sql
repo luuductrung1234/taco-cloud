@@ -19,7 +19,7 @@ create table if not exists Taco_Ingredients
     tacoId bigint not null,
     tacoKey integer,
     ingredientId varchar(4) not null,
-    primary key(tacoId, tacoKey, ingredientId)
+    primary key(tacoId, ingredientId)
 );
 
 alter table Taco_Ingredients
@@ -48,7 +48,7 @@ create table if not exists Order_Tacos
     orderId bigint not null,
     orderKey integer,
     tacoId bigint not null,
-    primary key(orderId, orderKey, tacoId)
+    primary key(orderId, tacoId)
 );
 
 alter table Order_Tacos

@@ -28,9 +28,14 @@
 <!--            <artifactId>taco-cloud-plain-jdbc</artifactId>-->
 <!--            <version>${project.version}</version>-->
 <!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.learn</groupId>-->
+<!--            <artifactId>taco-cloud-spring-jdbc</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.learn</groupId>
-            <artifactId>taco-cloud-spring-jdbc</artifactId>
+            <artifactId>taco-cloud-spring-jpa</artifactId>
             <version>${project.version}</version>
         </dependency>
 

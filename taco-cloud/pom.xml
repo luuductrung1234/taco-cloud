@@ -22,6 +22,7 @@
         <module>taco-cloud-domain</module>
         <module>persistence/taco-cloud-plain-jdbc</module>
         <module>persistence/taco-cloud-spring-jdbc</module>
+        <module>persistence/taco-cloud-spring-jpa</module>
     </modules>
 
     <properties>

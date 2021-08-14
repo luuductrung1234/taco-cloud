@@ -39,6 +39,7 @@ public class OrderRepositoryTests {
         taco1.addIngredient(new Ingredient("GRBF", "Ground Beef", IngredientType.PROTEIN));
         taco1.addIngredient(new Ingredient("CHED", "Cheddar", IngredientType.CHEESE));
         var savedTaco1 = tacoRepository.save(taco1);
+        taco1.setId(savedTaco1.getId());
         order.addTaco(savedTaco1);
 
         var taco2 = new Taco();
@@ -47,6 +48,7 @@ public class OrderRepositoryTests {
         taco2.addIngredient(new Ingredient("CARN", "Carnitas", IngredientType.PROTEIN));
         taco2.addIngredient(new Ingredient("JACK", "Monterrey Jack", IngredientType.CHEESE));
         var savedTaco2 = tacoRepository.save(taco2);
+        taco2.setId(savedTaco2.getId());
         order.addTaco(savedTaco2);
 
         var savedOrder = orderRepository.save(order);
