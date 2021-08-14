@@ -37,7 +37,7 @@ public class OrderEntity {
     private String ccExpiration;
     @Column("CCCVV")
     private String ccCVV;
-    @MappedCollection(idColumn = "ORDERID", keyColumn = "ID")
+    @MappedCollection(idColumn = "ORDERID", keyColumn = "ORDERKEY")
     private List<TacoRef> tacoRefs;
     @Column("CREATEDAT")
     private Date createdAt;

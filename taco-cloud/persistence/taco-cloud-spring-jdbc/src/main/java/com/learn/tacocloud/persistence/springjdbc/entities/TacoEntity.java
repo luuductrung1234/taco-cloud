@@ -24,7 +24,7 @@ public class TacoEntity {
 
     private String name;
 
-    @MappedCollection(idColumn = "TACOID", keyColumn = "ID")
+    @MappedCollection(idColumn = "TACOID", keyColumn = "TACOKEY")
     private List<IngredientRef> ingredientRefs;
 
     @Column("CREATEDAT")

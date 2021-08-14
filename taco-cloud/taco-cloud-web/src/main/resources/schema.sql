@@ -16,10 +16,10 @@ create table if not exists Tacos
 
 create table if not exists Taco_Ingredients
 (
-    id bigint not null,
     tacoId bigint not null,
+    tacoKey integer,
     ingredientId varchar(4) not null,
-    primary key(id)
+    primary key(tacoId, tacoKey, ingredientId)
 );
 
 alter table Taco_Ingredients
@@ -45,10 +45,10 @@ create table if not exists Orders
 
 create table if not exists Order_Tacos
 (
-    id bigint not null,
     orderId bigint not null,
+    orderKey integer,
     tacoId bigint not null,
-    primary key(id)
+    primary key(orderId, orderKey, tacoId)
 );
 
 alter table Order_Tacos

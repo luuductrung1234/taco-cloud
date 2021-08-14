@@ -4,7 +4,6 @@ import com.learn.tacocloud.domain.models.Ingredient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -13,9 +12,6 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 public class IngredientRef {
-    @Id
-    private Long id;
-
     @Column("INGREDIENTID")
     private String ingredientId;
 
