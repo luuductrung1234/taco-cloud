@@ -1,7 +1,7 @@
 create table if not exists Ingredients
 (
     id varchar(4) not null,
-    name varchar(25) not null,
+    name varchar(50) not null,
     type varchar(10) not null,
     primary key(id)
 );

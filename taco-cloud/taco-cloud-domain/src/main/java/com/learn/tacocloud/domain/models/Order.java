@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@EqualsAndHashCode(exclude = "createdAt")
+@EqualsAndHashCode(exclude = {"createdAt"})
 @AllArgsConstructor
 @NoArgsConstructor
 public class Order implements Serializable {

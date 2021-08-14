@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class DesignTacoAndOrderBrowserTest {
+public class DesignTacoAndOrderBrowserTests {
     @LocalServerPort
     private int port;
 

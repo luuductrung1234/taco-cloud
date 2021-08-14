@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@EqualsAndHashCode(exclude = "createdAt")
+@EqualsAndHashCode(exclude = {"createdAt"})
 @AllArgsConstructor
 @NoArgsConstructor
 public class Taco {
@@ -24,4 +24,8 @@ public class Taco {
     private List<Ingredient> ingredients = new ArrayList<>();
 
     private Date createdAt;
+
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
+    }
 }

@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class HomeControllerBrowserTest {
+public class HomeControllerBrowserTests {
     @LocalServerPort
     private int port;
 

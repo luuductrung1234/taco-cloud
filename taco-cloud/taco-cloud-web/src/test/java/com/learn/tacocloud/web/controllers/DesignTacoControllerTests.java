@@ -18,7 +18,7 @@ import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class DesignTacoControllerTest {
+public class DesignTacoControllerTests {
     @Autowired
     private MockMvc mockMvc;
 

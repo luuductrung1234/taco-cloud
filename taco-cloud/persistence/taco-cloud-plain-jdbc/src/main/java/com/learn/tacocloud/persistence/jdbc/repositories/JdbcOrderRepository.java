@@ -9,10 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class JdbcOrderRepository implements OrderRepository {
@@ -27,6 +24,11 @@ public class JdbcOrderRepository implements OrderRepository {
                 .usingGeneratedKeyColumns("id");
         this.tacoInserter = new SimpleJdbcInsert(jdbcTemplate)
                 .withTableName("Order_Tacos");
+    }
+
+    @Override
+    public Optional<Order> get(Long id) {
+        return Optional.empty();
     }
 
     @Override
