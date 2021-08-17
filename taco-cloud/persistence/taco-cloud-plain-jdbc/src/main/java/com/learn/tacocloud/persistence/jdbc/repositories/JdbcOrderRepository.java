@@ -27,14 +27,14 @@ public class JdbcOrderRepository implements OrderRepository {
     }
 
     @Override
-    public Optional<Order> get(Long id) {
+    public Optional<Order> get(UUID id) {
         return Optional.empty();
     }
 
     @Override
     public Order save(Order order) {
-        long orderId = saveOrderDetails(order);
-        order.setId(orderId);
+        var orderId = saveOrderDetails(order);
+        order.setId(UUID.fromString(orderId));
         List<Taco> tacos = order.getTacos();
         for (Taco taco : tacos) {
             saveTacoToOrder(taco, orderId);
@@ -42,7 +42,7 @@ public class JdbcOrderRepository implements OrderRepository {
         return order;
     }
 
-    private long saveOrderDetails(Order order) {
+    private String saveOrderDetails(Order order) {
         order.setCreatedAt(new Date());
         var objectMapper = new ObjectMapper();
 
@@ -50,11 +50,11 @@ public class JdbcOrderRepository implements OrderRepository {
         Map<String, Object> values = objectMapper.convertValue(order, Map.class);
         values.put("createdAt", order.getCreatedAt());
 
-        long orderId = orderInserter.executeAndReturnKey(values).longValue();
+        var orderId = String.valueOf(orderInserter.executeAndReturnKeyHolder(values).getKeyList().get(0).get("id"));
         return orderId;
     }
 
-    private void saveTacoToOrder(Taco taco, long orderId) {
+    private void saveTacoToOrder(Taco taco, String orderId) {
         Map<String, Object> values = new HashMap<>();
         values.put("tacoOrder", orderId);
         values.put("taco", taco.getId());

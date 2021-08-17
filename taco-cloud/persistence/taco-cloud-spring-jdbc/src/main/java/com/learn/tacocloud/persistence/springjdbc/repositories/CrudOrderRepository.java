@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Repository
@@ -23,7 +24,7 @@ public class CrudOrderRepository implements OrderRepository {
     }
 
     @Override
-    public Optional<Order> get(Long id) {
+    public Optional<Order> get(UUID id) {
         var orderEntity = helperRepository.findById(id);
         if (orderEntity.isPresent()) {
             var order = attachTaco(new ArrayList<>() {{

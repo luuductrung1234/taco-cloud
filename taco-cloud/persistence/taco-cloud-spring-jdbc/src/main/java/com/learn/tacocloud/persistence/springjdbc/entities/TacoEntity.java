@@ -12,6 +12,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Data
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class TacoEntity {
     @Id
-    private Long id;
+    private UUID id;
 
     private String name;
 

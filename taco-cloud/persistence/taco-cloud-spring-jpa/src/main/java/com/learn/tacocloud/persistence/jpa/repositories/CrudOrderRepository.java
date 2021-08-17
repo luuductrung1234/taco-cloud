@@ -6,6 +6,7 @@ import com.learn.tacocloud.persistence.jpa.entities.OrderEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class CrudOrderRepository implements OrderRepository {
@@ -16,7 +17,7 @@ public class CrudOrderRepository implements OrderRepository {
     }
 
     @Override
-    public Optional<Order> get(Long id) {
+    public Optional<Order> get(UUID id) {
         var orderEntity = helperRepository.findById(id);
         if (orderEntity.isPresent()) {
             return Optional.of(orderEntity.get().toOrder());

@@ -8,7 +8,7 @@ create table if not exists Ingredients
 
 create table if not exists Tacos
 (
-    id bigint not null auto_increment,
+    id uuid default random_uuid(),
     name varchar(50) not null,
     createdAt timestamp not null,
     primary key(id)
@@ -16,7 +16,7 @@ create table if not exists Tacos
 
 create table if not exists Taco_Ingredients
 (
-    tacoId bigint not null,
+    tacoId uuid not null,
     tacoKey integer,
     ingredientId varchar(4) not null,
     primary key(tacoId, ingredientId)
@@ -30,7 +30,7 @@ alter table Taco_Ingredients
 
 create table if not exists Orders
 (
-    id bigint not null auto_increment,
+    id uuid default random_uuid(),
     deliveryName varchar(50) not null,
     deliveryStreet varchar(50) not null,
     deliveryCity varchar(50) not null,
@@ -45,9 +45,9 @@ create table if not exists Orders
 
 create table if not exists Order_Tacos
 (
-    orderId bigint not null,
+    orderId uuid not null,
     orderKey integer,
-    tacoId bigint not null,
+    tacoId uuid not null,
     primary key(orderId, tacoId)
 );
 

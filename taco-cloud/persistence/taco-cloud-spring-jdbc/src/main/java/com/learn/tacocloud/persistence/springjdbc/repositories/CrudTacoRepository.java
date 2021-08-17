@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Repository
@@ -29,7 +30,7 @@ public class CrudTacoRepository implements TacoRepository {
     }
 
     @Override
-    public Optional<Taco> get(Long id) {
+    public Optional<Taco> get(UUID id) {
         var tacoEntity = helperRepository.findById(id);
         if (tacoEntity.isPresent()) {
             var taco = attachIngredient(new ArrayList<>() {{

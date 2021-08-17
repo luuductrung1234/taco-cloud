@@ -1,8 +1,28 @@
 spring:
   thymeleaf:
     cache: false
+  #data:
+    #cassandra:
+      #keyspace-name: tacocloud
+      #schema-action: recreate_drop_unused
+      #local-datacenter: datacenter1
+      #contact-points: # a contact point is the host where Casssandra node is running
+      #- localhost
+      #port: 9042
+      #username: cassandra
+      #password: cassandra
   datasource:
     generate-unique-name: false
     name: tacocloud
+    #url: jdbc:mysql://localhost:3306/TACODB?useSSL=true
+    #username: root
+    #password: P@ssoword1
+    #driver-class-name: com.mysql.jdbc.Driver
+  #h2:
+    #console:
+      #enabled: true
   jpa:
     defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update

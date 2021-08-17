@@ -38,6 +38,11 @@
             <artifactId>taco-cloud-spring-jpa</artifactId>
             <version>${project.version}</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.learn</groupId>-->
+<!--            <artifactId>taco-cloud-spring-cassandra</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--        </dependency>-->
 
         <!-- ==========================================
         3RD PARTY
@@ -57,16 +62,6 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
-        </dependency>
-
-        <!-- ==========================================
-        DATASOURCE
-        ==========================================- -->
-
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
         </dependency>
 
         <!-- ==========================================

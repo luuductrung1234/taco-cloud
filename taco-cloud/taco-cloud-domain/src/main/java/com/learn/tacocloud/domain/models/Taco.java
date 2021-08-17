@@ -7,13 +7,14 @@ import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @EqualsAndHashCode(exclude = {"createdAt"})
 @AllArgsConstructor
 @NoArgsConstructor
 public class Taco {
-    private Long id;
+    private UUID id;
 
     @NotNull
     @Size(min = 5, message = "Name must be at least 5 characters long")

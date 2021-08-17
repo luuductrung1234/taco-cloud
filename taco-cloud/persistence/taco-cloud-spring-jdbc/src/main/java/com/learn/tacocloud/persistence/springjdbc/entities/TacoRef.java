@@ -7,13 +7,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.util.UUID;
+
 @Data
 @Table("ORDER_TACOS")
 @AllArgsConstructor
 @NoArgsConstructor
 public class TacoRef {
     @Column("TACOID")
-    private Long tacoId;
+    private UUID tacoId;
 
     public TacoRef(Taco taco) {
         this.tacoId = taco.getId();

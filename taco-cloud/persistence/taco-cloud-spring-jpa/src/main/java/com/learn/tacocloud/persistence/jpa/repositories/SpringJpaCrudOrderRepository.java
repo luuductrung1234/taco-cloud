@@ -7,9 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Repository
-public interface SpringJpaCrudOrderRepository extends CrudRepository<OrderEntity, Long> {
+public interface SpringJpaCrudOrderRepository extends CrudRepository<OrderEntity, UUID> {
     List<OrderEntity> findByDeliveryZip(String deliveryZip);
 
     List<OrderEntity> findByDeliveryZipOrderByCreatedAt(String deliveryZip);
