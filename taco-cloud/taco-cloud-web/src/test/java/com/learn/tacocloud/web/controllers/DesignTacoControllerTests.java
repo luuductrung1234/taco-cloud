@@ -1,6 +1,7 @@
 package com.learn.tacocloud.web.controllers;
 
 
+import com.learn.tacocloud.domain.enums.IngredientType;
 import com.learn.tacocloud.domain.models.Ingredient;
 import com.learn.tacocloud.domain.repositories.IngredientRepository;
 import org.apache.commons.collections4.IterableUtils;
@@ -15,6 +16,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -37,11 +39,11 @@ public class DesignTacoControllerTests {
         mockMvc.perform(MockMvcRequestBuilders.get("/design"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("design"))
-                .andExpect(MockMvcResultMatchers.model().attribute("wrap", ingredients.subList(0, 2)))
-                .andExpect(MockMvcResultMatchers.model().attribute("protein", ingredients.subList(2, 4)))
-                .andExpect(MockMvcResultMatchers.model().attribute("veggies", ingredients.subList(4, 6)))
-                .andExpect(MockMvcResultMatchers.model().attribute("cheese", ingredients.subList(6, 8)))
-                .andExpect(MockMvcResultMatchers.model().attribute("sauce", ingredients.subList(8, 10)));
+                .andExpect(MockMvcResultMatchers.model().attribute("wrap", ingredients.stream().filter(i -> i.getType() == IngredientType.WRAP).collect(Collectors.toList())))
+                .andExpect(MockMvcResultMatchers.model().attribute("protein", ingredients.stream().filter(i -> i.getType() == IngredientType.PROTEIN).collect(Collectors.toList())))
+                .andExpect(MockMvcResultMatchers.model().attribute("veggies", ingredients.stream().filter(i -> i.getType() == IngredientType.VEGGIES).collect(Collectors.toList())))
+                .andExpect(MockMvcResultMatchers.model().attribute("cheese", ingredients.stream().filter(i -> i.getType() == IngredientType.CHEESE).collect(Collectors.toList())))
+                .andExpect(MockMvcResultMatchers.model().attribute("sauce", ingredients.stream().filter(i -> i.getType() == IngredientType.SAUCE).collect(Collectors.toList())));
     }
 
     @Test

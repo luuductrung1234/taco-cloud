@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -96,32 +97,102 @@ public class DesignTacoAndOrderBrowserTests {
         WebElement wrapGroup = browser.findElementByCssSelector("div.ingredient-group#wraps");
         List<WebElement> wraps = wrapGroup.findElements(By.tagName("div"));
         Assertions.assertThat(wraps.size()).isEqualTo(2);
-        assertIngredient(wrapGroup, 0, "FLTO", "Flour Tortilla");
-        assertIngredient(wrapGroup, 1, "COTO", "Corn Tortilla");
+        assertIngredient(wrapGroup, 0, new ArrayList<>() {{
+                    add("FLTO");
+                    add("COTO");
+                }},
+                new ArrayList<>() {{
+                    add("Flour Tortilla");
+                    add("Corn Tortilla");
+                }});
+        assertIngredient(wrapGroup, 1, new ArrayList<>() {{
+                    add("FLTO");
+                    add("COTO");
+                }},
+                new ArrayList<>() {{
+                    add("Flour Tortilla");
+                    add("Corn Tortilla");
+                }});
 
         WebElement proteinGroup = browser.findElementByCssSelector("div.ingredient-group#proteins");
         List<WebElement> proteins = proteinGroup.findElements(By.tagName("div"));
         Assertions.assertThat(proteins.size()).isEqualTo(2);
-        assertIngredient(proteinGroup, 0, "GRBF", "Ground Beef");
-        assertIngredient(proteinGroup, 1, "CARN", "Carnitas");
+        assertIngredient(proteinGroup, 0, new ArrayList<>() {{
+                    add("GRBF");
+                    add("CARN");
+                }},
+                new ArrayList<>() {{
+                    add("Ground Beef");
+                    add("Carnitas");
+                }});
+        assertIngredient(proteinGroup, 1, new ArrayList<>() {{
+                    add("GRBF");
+                    add("CARN");
+                }},
+                new ArrayList<>() {{
+                    add("Ground Beef");
+                    add("Carnitas");
+                }});
 
         WebElement cheeseGroup = browser.findElementByCssSelector("div.ingredient-group#cheeses");
         List<WebElement> cheeses = proteinGroup.findElements(By.tagName("div"));
         Assertions.assertThat(cheeses.size()).isEqualTo(2);
-        assertIngredient(cheeseGroup, 0, "CHED", "Cheddar");
-        assertIngredient(cheeseGroup, 1, "JACK", "Monterrey Jack");
+        assertIngredient(cheeseGroup, 0, new ArrayList<>() {{
+                    add("CHED");
+                    add("JACK");
+                }},
+                new ArrayList<String>() {{
+                    add("Cheddar");
+                    add("Monterrey Jack");
+                }});
+        assertIngredient(cheeseGroup, 1, new ArrayList<>() {{
+                    add("CHED");
+                    add("JACK");
+                }},
+                new ArrayList<String>() {{
+                    add("Cheddar");
+                    add("Monterrey Jack");
+                }});
 
         WebElement veggieGroup = browser.findElementByCssSelector("div.ingredient-group#veggies");
         List<WebElement> veggies = proteinGroup.findElements(By.tagName("div"));
         Assertions.assertThat(veggies.size()).isEqualTo(2);
-        assertIngredient(veggieGroup, 0, "TMTO", "Diced Tomatoes");
-        assertIngredient(veggieGroup, 1, "LETC", "Lettuce");
+        assertIngredient(veggieGroup, 0, new ArrayList<>() {{
+                    add("TMTO");
+                    add("LETC");
+                }},
+                new ArrayList<>() {{
+                    add("Diced Tomatoes");
+                    add("Lettuce");
+                }});
+        assertIngredient(veggieGroup, 1, new ArrayList<>() {{
+                    add("TMTO");
+                    add("LETC");
+                }},
+                new ArrayList<>() {{
+                    add("Diced Tomatoes");
+                    add("Lettuce");
+                }});
 
         WebElement sauceGroup = browser.findElementByCssSelector("div.ingredient-group#sauces");
         List<WebElement> sauces = proteinGroup.findElements(By.tagName("div"));
         Assertions.assertThat(sauces.size()).isEqualTo(2);
-        assertIngredient(sauceGroup, 0, "SLSA", "Salsa");
-        assertIngredient(sauceGroup, 1, "SRCR", "Sour Cream");
+        assertIngredient(sauceGroup, 0, new ArrayList<>() {{
+                    add("SLSA");
+                    add("SRCR");
+                }},
+                new ArrayList<>() {{
+                    add("Salsa");
+                    add("Sour Cream");
+                }});
+        assertIngredient(sauceGroup, 1, new ArrayList<>() {{
+                    add("SLSA");
+                    add("SRCR");
+                }},
+                new ArrayList<>() {{
+                    add("Salsa");
+                    add("Sour Cream");
+                }});
     }
 
     private void fillInAndSubmitOrderForm() {
@@ -194,6 +265,14 @@ public class DesignTacoAndOrderBrowserTests {
         WebElement field = browser.findElementByCssSelector(fieldName);
         field.clear();
         field.sendKeys(value);
+    }
+
+    private void assertIngredient(WebElement ingredientGroup,
+                                  int ingredientIdx, List<String> ids, List<String> names) {
+        List<WebElement> proteins = ingredientGroup.findElements(By.tagName("div"));
+        WebElement ingredient = proteins.get(ingredientIdx);
+        Assertions.assertThat(ids).contains(ingredient.findElement(By.tagName("input")).getAttribute("value"));
+        Assertions.assertThat(names).contains(ingredient.findElement(By.tagName("span")).getText());
     }
 
     private void assertIngredient(WebElement ingredientGroup,

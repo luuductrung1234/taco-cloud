@@ -23,6 +23,7 @@
         <module>persistence/taco-cloud-plain-jdbc</module>
         <module>persistence/taco-cloud-spring-jdbc</module>
         <module>persistence/taco-cloud-spring-jpa</module>
+        <module>persistence/taco-cloud-spring-cassandra</module>
     </modules>
 
     <properties>
