@@ -24,6 +24,7 @@
         <module>persistence/taco-cloud-spring-jdbc</module>
         <module>persistence/taco-cloud-spring-jpa</module>
         <module>persistence/taco-cloud-spring-cassandra</module>
+        <module>persistence/taco-cloud-spring-mongodb</module>
     </modules>
 
     <properties>

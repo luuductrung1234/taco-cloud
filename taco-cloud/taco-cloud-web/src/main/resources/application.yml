@@ -2,20 +2,26 @@ spring:
   thymeleaf:
     cache: false
   data:
-    cassandra:
-      keyspace-name: tacocloud
-      #schema-action: recreate_drop_unused
-      schema-action: create_if_not_exists
-      local-datacenter: Mars  # run cqlsh on your Cassandra, to get data center name
+    mongodb:
+      uri: mongodb+srv://sa:P%40ssword1@cluster0.f9elq.mongodb.net/tacoclouddb?retryWrites=true&w=majority
+      #host: localhost # this type of config not work with MongoDb Atlas
+      #port: 27017
+      #username: sa
+      #password: P@ssword1
+      #database: tacoclouddb
+    #cassandra:
+      #keyspace-name: tacocloud
+      #schema-action: create_if_not_exists
+      #local-datacenter: Mars  # run cqlsh on your Cassandra, to get data center name
       #contact-points: # a contact point is the host where Cassandra node is running
       #- {your host}
-      port: 9042
-      username: cassandra
-      password: cassandra
-      connection:
-        init-query-timeout: 200s
-        connection-timeout: 5s
-        connect-timeout: 5s
+      #port: 9042
+      #username: cassandra
+      #password: cassandra
+      #connection:
+        #init-query-timeout: 30s
+        #connection-timeout: 5s
+        #connect-timeout: 5s
   #datasource:
     #generate-unique-name: false
     #name: tacocloud
