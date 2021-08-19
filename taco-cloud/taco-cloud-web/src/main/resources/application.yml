@@ -3,12 +3,12 @@ spring:
     cache: false
   data:
     mongodb:
-      uri: mongodb+srv://sa:P%40ssword1@cluster0.f9elq.mongodb.net/tacoclouddb?retryWrites=true&w=majority
-      #host: localhost # this type of config not work with MongoDb Atlas
-      #port: 27017
-      #username: sa
-      #password: P@ssword1
-      #database: tacoclouddb
+      #uri: mongodb+srv://sa:P%40ssword1@<my-cluster>/tacoclouddb?retryWrites=true&w=majority
+      host: localhost # this type of config not work with MongoDb Atlas
+      port: 27017
+      username: sa
+      password: P@ssword1
+      database: tacoclouddb
     #cassandra:
       #keyspace-name: tacocloud
       #schema-action: create_if_not_exists
