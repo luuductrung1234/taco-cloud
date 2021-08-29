@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <title>Taco Cloud</title>
@@ -9,6 +10,18 @@
 <body>
 <h1>Welcome to...</h1>
 <img th:src="@{/images/TacoCloud.png}" alt=""/>
+
+<div sec:authorize="isAnonymous()">
+    <a th:href="@{/login}">Login</a>
+</div>
+<div th:fragment="logout" class="logout"
+     sec:authorize="isAuthenticated()">
+    <h2>Hi <span style="color: red" sec:authentication="name"></span>, long time no see :)</h2>
+    <h3>Roles: <span sec:authentication="principal.authorities">ROLE_USER</span></h3>
+    <form method="POST" th:action="@{/logout}" id="logoutForm" style="display: inline">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
 
 <a th:href="@{/design}" id="design">Design a taco</a>
 </body>

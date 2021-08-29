@@ -1,19 +1,23 @@
 package com.learn.tacocloud.web.controllers;
 
 import com.learn.tacocloud.domain.enums.IngredientType;
+import com.learn.tacocloud.domain.models.Account;
 import com.learn.tacocloud.domain.models.Ingredient;
 import com.learn.tacocloud.domain.models.Order;
 import com.learn.tacocloud.domain.models.Taco;
+import com.learn.tacocloud.domain.repositories.AccountRepository;
 import com.learn.tacocloud.domain.repositories.IngredientRepository;
 import com.learn.tacocloud.domain.repositories.TacoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.IterableUtils;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,10 +28,15 @@ import java.util.stream.Collectors;
 public class DesignTacoController {
     private final IngredientRepository ingredientRepository;
     private final TacoRepository tacoRepository;
+    private final AccountRepository accountRepository;
 
-    public DesignTacoController(IngredientRepository ingredientRepository, TacoRepository tacoRepository) {
+    public DesignTacoController(
+            IngredientRepository ingredientRepository,
+            TacoRepository tacoRepository,
+            AccountRepository accountRepository) {
         this.ingredientRepository = ingredientRepository;
         this.tacoRepository = tacoRepository;
+        this.accountRepository = accountRepository;
     }
 
     @ModelAttribute
@@ -47,6 +56,13 @@ public class DesignTacoController {
     @ModelAttribute(name = "taco")
     public Taco taco() {
         return new Taco();
+    }
+
+    @ModelAttribute(name = "user")
+    public Account user(Principal principal) {
+        String username = principal.getName();
+        Account user = accountRepository.findByUsername(username);
+        return user;
     }
 
     @GetMapping

@@ -2,13 +2,8 @@ spring:
   thymeleaf:
     cache: false
   data:
-    mongodb:
-      #uri: mongodb+srv://sa:P%40ssword1@<my-cluster>/tacoclouddb?retryWrites=true&w=majority
-      host: localhost # this type of config not work with MongoDb Atlas
-      port: 27017
-      username: sa
-      password: P@ssword1
-      database: tacoclouddb
+    #mongodb:
+      #uri: mongodb://sa:P%40ssword1@localhost:27017/tacoclouddb
     #cassandra:
       #keyspace-name: tacocloud
       #schema-action: create_if_not_exists
@@ -22,18 +17,18 @@ spring:
         #init-query-timeout: 30s
         #connection-timeout: 5s
         #connect-timeout: 5s
-  #datasource:
-    #generate-unique-name: false
-    #name: tacocloud
+  datasource:
+    generate-unique-name: false
+    name: tacocloud
     #url: jdbc:mysql://localhost:3306/TACODB?useSSL=true
     #username: root
     #password: P@ssoword1
     #driver-class-name: com.mysql.jdbc.Driver
-  #h2:
-    #console:
-      #enabled: true
-  #jpa:
-    #defer-datasource-initialization: true
-    #show-sql: true
-    #hibernate:
-      #ddl-auto: update
+  h2:
+    console:
+      enabled: true
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update

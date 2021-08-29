@@ -1,3 +1,8 @@
+body {
+    font-family: sans;
+    font-size: 1em;
+}
+
 div.ingredient-group:nth-child(odd) {
     float: left;
     padding-right: 20px;
@@ -26,4 +31,13 @@ div.ingredient-group {
 
 span.validationError {
     color: red;
+}
+
+p.error {
+    font-weight: bold;
+    color: red;
+}
+
+div.logout {
+    float: right;
 }
